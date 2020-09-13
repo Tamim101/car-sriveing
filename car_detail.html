@@ -1,0 +1,36 @@
+<div>
+
+
+
+            <h3>{{ car.car_model|capfirst }}</h3>
+        </a>
+        <p>{{ car.car_model }}</p>
+           {% if car.year_old %}
+               <p>YEAR OLD : {{ car.year_old }}</p>
+           {% endif %}
+
+
+           {% if car.service_type%}
+                 <p>SERVICE TYPE: {{ car.service_type }}</p>
+           {% endif %}
+
+
+           {% if car.car_notes%}
+                 <p>CAR NOTES: {{ car.car.notes }}</p>
+           {% endif %}
+
+        {% if car.servicing.all %}
+
+         <p>Servicing for:</p>
+         <ul>
+             {% for servicing in car.servicing.all %}
+             <li>{{ servicing.name }}</li>
+             {% endfor %}
+
+         </ul>
+            {% endif %}
+
+        <p>Submitted by : {{  car.car_owner}}</p>
+        <p>Submitted on : {{ car.submission_date|date:"M d Y"}}</p>
+         <p>{{ car.description }}</p>
+</div>
